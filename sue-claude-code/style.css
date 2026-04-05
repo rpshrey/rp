@@ -1,0 +1,334 @@
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #0f1117;
+  --surface:   #1a1d27;
+  --surface2:  #222638;
+  --border:    #2e3250;
+  --accent:    #6b7fff;
+  --accent2:   #a78bfa;
+  --danger:    #f87171;
+  --warning:   #fbbf24;
+  --info:      #38bdf8;
+  --text:      #e2e8f0;
+  --muted:     #94a3b8;
+  --radius:    10px;
+  --max-width: 960px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Header ── */
+header {
+  background: linear-gradient(135deg, #1a1d27 0%, #0f1117 60%, #1a1020 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 3.5rem 1.5rem 3rem;
+  text-align: center;
+}
+
+.header-inner { max-width: var(--max-width); margin: 0 auto; }
+
+.gavel-icon { font-size: 3rem; margin-bottom: 0.75rem; }
+
+header h1 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* ── Nav ── */
+nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  list-style: none;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+nav ul li a {
+  display: block;
+  padding: 0.75rem 1.1rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+nav ul li a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ── Main Layout ── */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* ── Section Headings ── */
+section { scroll-margin-top: 56px; }
+
+section h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border);
+}
+
+section p { color: var(--muted); margin-bottom: 1rem; }
+section p:last-child { margin-bottom: 0; }
+
+/* ── Callout Boxes ── */
+.callout {
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.callout.info {
+  background: rgba(56, 189, 248, 0.08);
+  border-left: 4px solid var(--info);
+  color: var(--text);
+}
+
+.callout.warning {
+  background: rgba(251, 191, 36, 0.08);
+  border-left: 4px solid var(--warning);
+  color: var(--text);
+}
+
+.disclaimer {
+  background: rgba(248, 113, 113, 0.08);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  font-size: 0.9rem;
+  color: #fca5a5;
+}
+
+/* ── Cards Grid ── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.card-icon { font-size: 1.75rem; margin-bottom: 0.6rem; }
+
+.card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ── Table ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+thead tr {
+  background: var(--surface2);
+  border-bottom: 2px solid var(--border);
+}
+
+th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.83rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  vertical-align: top;
+}
+
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: rgba(107, 127, 255, 0.04); }
+td strong { color: var(--text); }
+
+/* ── Steps List ── */
+.steps-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.steps-list li {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.3rem;
+}
+
+.step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.steps-list li > div { flex: 1; }
+.steps-list li strong { color: var(--text); font-size: 0.97rem; }
+.steps-list li p { font-size: 0.88rem; color: var(--muted); margin-top: 0.3rem; margin-bottom: 0; }
+
+/* ── Challenge Grid ── */
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.1rem;
+  margin-top: 1rem;
+}
+
+.challenge {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--danger);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+}
+
+.challenge h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.challenge p {
+  font-size: 0.86rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ── Alt Cards ── */
+.alt-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1.1rem;
+  margin-top: 1rem;
+}
+
+.alt-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent2);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+}
+
+.alt-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.alt-card p {
+  font-size: 0.86rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ── Footer ── */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 1.75rem 1.5rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  nav ul li a { padding: 0.6rem 0.75rem; font-size: 0.8rem; }
+  .cards, .challenge-grid, .alt-cards { grid-template-columns: 1fr; }
+  table, thead, tbody, tr, th, td { display: block; }
+  thead tr { display: none; }
+  td { border-bottom: 1px solid var(--border); padding: 0.6rem 0.75rem; }
+  tbody tr { border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 0.75rem; background: var(--surface); }
+}
